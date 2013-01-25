@@ -1,0 +1,54 @@
+table{
+border-collapse: collapse;
+}
+
+
+#main {
+ width :100%;
+ padding-top: 50px;
+ margin :0 auto;
+ float:left;
+ height: 700px; 
+ padding-left: 2em;
+ }
+ 
+#image{
+  float :left;
+  width: 300px;
+ }
+
+#text{
+ float :left;
+ width 500px;
+ }
+ 
+ #header{
+ background: #CFCFE3;
+ width:100%;
+ float:left;
+  text-align: center;
+ border-bottom: 2px solid black;
+ }
+  
+ 
+  .txt1{
+ 
+text-align: center;
+ padding-bottom: 33px;
+ width:1400px;
+ font-weight:bold;
+ font-size:25px;
+ font: small-caps 40px/40px "Times New Roman",serif;
+
+ }
+ 
+ #wrap{
+  width:800px;
+  margin: 0 auto;
+   padding-top: 99px;
+  }
+  
+ 
+ 
+ 
+

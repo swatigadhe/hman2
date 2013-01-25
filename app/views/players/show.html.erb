@@ -1,0 +1,50 @@
+
+<%#= flash[:notice] %>
+
+<div id="main">
+<div id="image">
+<%#= image_tag("/images/image#{@player.chancess_remain}.gif") %>
+<%= render 'image' %>
+</div>
+<div id="text">
+<table>
+  <tr>
+    
+  <% if !@current_word.nil? && @player.chancess_remain >0 %>
+  <%#=  @current_word %>
+    
+    <td><%= @current_word.split(//).join(" ") if !@current_word.nil?  %> </td>
+  </tr>
+   <tr>
+    <td><%= "Guesses: #{@player.guesses}" %></td>
+  </tr>
+  
+<tr>
+    
+    <td>
+      <%= form_for @player, :url => {:action => "update"} do |f| %>
+      
+          <br /> New guess:<br />
+          <%= f.text_field :guesses, :value => "" %><br /><br/>
+          <%= f.submit "Submit Guess" %>
+      <% end if !@current_word.nil?  %>
+      
+    </td>
+  </tr>
+  
+    
+  <% else %>
+  <b><%= " Lost the game. Word is #{@player.word}" %></b>
+  <% end %>
+  
+  </table>
+  <%= flash[:notice] %><br />
+  <%= link_to 'Back', players_path %>
+  <%= link_to 'New Game', new_player_path %>
+  </div>
+  
+
+</div>
+  
+  
+

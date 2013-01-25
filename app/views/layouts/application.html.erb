@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hman</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="background: #CFCFE3;padding-top: 10px;">
+<div id="header">
+<%#= image_tag("index4.jpeg")%>
+     <div class="txt1">Hangman Game</div>
+</div>
+
+<div id="wrap">
+    <%= yield %>
+</div>
+
+
+
+</body>
+</html>

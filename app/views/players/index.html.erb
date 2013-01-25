@@ -1,0 +1,22 @@
+<h1>Hangman!</h1>
+
+<table>
+  <tr>
+    <th>Game Number</th>
+    <th>Player Name</th>
+    <th>Status</th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%= player.id %></td>
+    <td><%= player.name %></td>
+    <td><%= player.status %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game', new_player_path %>

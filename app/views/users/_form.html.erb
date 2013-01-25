@@ -1,0 +1,36 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :UserName %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :Email_Id %><br />
+    <%= f.text_field :email_id %><br /><br/>
+    Existing Games
+    
+  </div>
+  <%#= select_tag 'users_game_ids[]',
+options_from_collection_for_select(@games, :id, :gamename ), {
+:multiple => true, :size =>5, :id => "users_games_id" } %>
+
+<%= select_tag 'user[game_ids][]', options_for_select(@games.map {|s| [s.gamename, s.id]}), :multiple => true, :size =>8%>
+
+    <%= hidden_field_tag :user_id,'',:value=>params[:id] %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

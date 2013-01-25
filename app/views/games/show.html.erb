@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Gamename:</b>
+  <%= @game.gamename %>
+</p>
+
+<h2>Words</h2>
+<% @game.lists.each do |list| %>
+   
+  <p>
+    
+    <%= list.words %>
+  </p>
+<% end %>
+
+<h2>Add a word:</h2>
+<%= form_for([@game, @game.lists.build]) do |f| %>
+  
+  <div class="field">
+    <%= f.label :Word %><br />
+    <%= f.text_field :words %>
+  <%= params[:error] if params[:error]%>
+  
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
+<%= link_to 'Play Game', players_path %>
