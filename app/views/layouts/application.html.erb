@@ -6,17 +6,21 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background: #CFCFE3;padding-top: 10px;">
+<body style="background: #CFCFE3; padding: 0;margin: 0;">
 <div id="header">
-<%#= image_tag("index4.jpeg")%>
+<%= image_tag("imagesh.jpeg")%>
      <div class="txt1">Hangman Game</div>
 </div>
-
-<div id="wrap">
+<div id="column">
+  <div id="side">
+    <%#= image_tag("hangman09.gif")%>
+  </div>
+  <div id="wrap">
     <%= yield %>
+  </div>
+</div>  
+<div id="footer">
+Copyright ®2013 The One That Love Games.All Rights Reserved.
 </div>
-
-
-
 </body>
 </html>
