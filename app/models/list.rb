@@ -1,6 +1,6 @@
 class List < ActiveRecord::Base
   belongs_to :game
-  attr_accessible :words
+  attr_accessible :words, :hint
   validates :words, :presence => true
   validates :words, :uniqueness => true
   

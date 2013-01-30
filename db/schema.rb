@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125054702) do
+ActiveRecord::Schema.define(:version => 20130130093209) do
 
   create_table "games", :force => true do |t|
     t.string   "gamename"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130125054702) do
     t.integer  "game_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "hint"
   end
 
   add_index "lists", ["game_id"], :name => "index_lists_on_game_id"

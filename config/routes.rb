@@ -12,6 +12,8 @@ post '/check', :as => :check
 end
 end
 
+#match "players/new/:id",:controller=>"players",:action=>"new",:via=>:get
+
  # match 'players/check',:controller=>"players",:action=>'check',:via=>:post
     
    

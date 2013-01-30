@@ -2,15 +2,51 @@ class PlayersController < ApplicationController
 
 def index
   @players = Player.all
+  
 end
 
 def new
+  p params[:id]
+  @id = params[:id]
+  #p @@id
+  #p @@id.class
+  
   @player = Player.new
+ 
 end
 
 def create
   @player = Player.new(params[:player])
-  @player.word = List.random_word
+ 
+  session[:gid] = params[:game_id]
+  # Here we are finding list records related to game id selected.
+    #we can use both ways written below
+    #@list_ids = List.find(:all , :conditions => ["game_id = ?",  params[:game_id]])
+    
+     @list_ids = List.find_all_by_game_id(params[:game_id])
+  # Here we are finding exact randome id of list.  
+    @list_id=@list_ids.shuffle.first
+
+  # Here we are fetching single list record from seleted id.    
+    @playerword= List.find_by_id(@list_id)  
+    
+    @hint = @playerword.hint
+    session[:h]= @hint
+  # Here we are fetching current word.  
+    @player.word = @playerword.words.upcase
+  
+  
+ # Here we fetch all records from db   
+   # @list = List.find(:all)
+ # Here we shuffle records and find random id of list
+    #@lid = @list.shuffle.first
+ # Here we fetch record related to that id   
+    #@word = List.find_by_id(@lid)
+ # Here we current word and assign to player   
+    #@player.word = @word.words.upcase
+    
+    
+ # @player.word = List.random_word
   @player.status = "playing"
   @player.guesses = ""
   @player.guess_string = ""

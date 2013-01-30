@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+http_basic_authenticate_with :name => "swati", :password => "hindavi", :only => :new
+
 def new
     @user = User.new
     @games = Game.all

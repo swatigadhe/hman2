@@ -1,5 +1,10 @@
 class GamesController < ApplicationController
+  
+ http_basic_authenticate_with :name => "swati", :password => "hindavi"
+ 
+
   # GET /games
+  
   # GET /games.json
   def index
     @games = Game.all

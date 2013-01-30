@@ -12,11 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :PlayerName %><br />
+    <b><%= f.label :PlayerName %></b><br />
     <%= f.text_field :name %>
   </div>
+  <%= hidden_field_tag "game_id", params[:id] %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'buttonTo' %>
   </div>
 <% end %>

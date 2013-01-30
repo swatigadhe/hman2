@@ -23,11 +23,17 @@
   <%= params[:error] if params[:error]%>
   
   </div>
+  <div class="field">
+  <%= f.label :Hint %><br />
+    <%= f.text_field :hint %>
+  <%= params[:error] if params[:error]%>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create List', :class=> "buttonTo" %>
   </div>
 <% end %>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
-<%= link_to 'Play Game', players_path %>
+<%= link_to 'Edit', edit_game_path(@game),{:style=>'color:#415989;',:class => "a"} %> |
+<%= link_to 'Back', games_path,{:style=>'color:#415989;',:class => "a"} %>
+<%= link_to 'NewGame', new_game_path,{:style=>'color:#415989;',:class => "a"} %>
+<%= link_to 'Play Game', players_path,{:style=>'color:#415989;',:class => "a"} %>

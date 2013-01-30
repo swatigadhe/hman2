@@ -9,24 +9,28 @@
 <div id="text">
 <table>
   <tr>
-    
+   
   <% if !@current_word.nil? && @player.chancess_remain >0 %>
   <%#=  @current_word %>
     
-    <td><%= @current_word.split(//).join(" ") if !@current_word.nil?  %> </td>
+    <td><%= @current_word.split(//).join(" ") if !@current_word.nil?  %> </td><br/>
   </tr>
    <tr>
-    <td><%= "Guesses: #{@player.guesses}" %></td>
+   
+    <td><br/><b><%= "Guesses: #{@player.guesses}" %></b></td>
   </tr>
   
 <tr>
     
     <td>
+    <div id="hint">
+    <br/><%=  session[:h] %><br/>
+    </div>
       <%= form_for @player, :url => {:action => "update"} do |f| %>
       
-          <br /> New guess:<br />
-          <%= f.text_field :guesses, :value => "" %><br /><br/>
-          <%= f.submit "Submit Guess" %>
+          <br /> New guess:
+          <%= f.text_field :guesses, :value => "", :size => "15" %><br /><br/>
+          <%= f.submit "Submit Guess", :class => "buttonTo" %>
       <% end if !@current_word.nil?  %>
       
     </td>
@@ -39,8 +43,13 @@
   
   </table>
   <%= flash[:notice] %><br />
-  <%= link_to 'Back', players_path %>
-  <%= link_to 'New Game', new_player_path %>
+  
+  <%= link_to 'Back', players_path, {:style=>'color:#415989;',:class => "a"} %>
+ 
+  <%= link_to 'New Game', new_player_path(:id => session[:gid] ),{:style=>'color:#415989;',:class => "a"} %>
+  <%= link_to 'Home', root_path,{:style=>'color:#415989;',:class => "a"} %>
+  
+  <%#s= link_to 'New', :controller => "players", :action => "create" %>
   </div>
   
 

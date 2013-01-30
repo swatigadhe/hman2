@@ -1,6 +1,8 @@
 class Player < ActiveRecord::Base
   attr_accessible :guesses, :name, :status, :word, :chancess_remain, :guess_string
  
+  
+  
   def current_word()
     str1 = ""
     word.each_char.with_index do|ch,index|

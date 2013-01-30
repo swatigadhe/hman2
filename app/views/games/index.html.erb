@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Gamename</th>
+    
     <th></th>
     <th></th>
     <th></th>
@@ -10,14 +10,14 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><%= game.gamename %></td>
-    <td><%= link_to 'Show', game %></td>
-    <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><h2><%= game.gamename %></h2></td>
+    <td><%= link_to 'Show', game, {:style=>'color:#415989;',:class => "a"} %></td>
+    <td><%= link_to 'Edit', edit_game_path(game), {:style=>'color:#415989;',:class => "a"} %></td>
+    <td><%= link_to 'Destroy', game,{:style=>'color:#415989;',:class => "a"}, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%#= link_to 'New Game', new_game_path %>
+<%= link_to 'Create Game', new_game_path,{:style=>'color:#415989;',:class => "a"} %>
