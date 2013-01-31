@@ -1,8 +1,12 @@
 table{
 border-collapse: collapse;
 }
+/*
+body
+{
+  background-image: url("i.jpg") ;
 
-
+}*/
 #main {
  width :100%;
  padding-top: 50px;
@@ -19,6 +23,8 @@ border-collapse: collapse;
   
   
  }
+
+ 
 
 #text{
  float :left;
@@ -57,8 +63,8 @@ text-align: center;
  padding-top: 25px;
  width:1400px;
  font-weight:bold;
- font-size:25px;
- font: small-caps 40px/40px "Times New Roman",serif;
+ font-size:20px;
+ font: small-caps  "Times New Roman",serif;
  float: center;
  }
  
@@ -66,7 +72,10 @@ text-align: center;
   width:800px;
   margin: 0 auto;
    padding-top: 65px;
-   
+   height:100%;
+   font-size:15px;
+   padding-left: 17em;
+
    
    
   }
@@ -98,7 +107,7 @@ color: black;
   #side {
     float: left;
     padding-top: 3em;
-    padding-left: 2em;
+    padding-left: 3em;
     padding-bottom: 0em;
     width: 175px;
     background: #111111;
@@ -144,18 +153,26 @@ color: black;
 .btn{
   width:200px;
 }
- .a{
- font-size:17px;
- color:white;
- 
-        width: 130px;
- 
- 
- }
- .a:hover {
+
+
+
+
+
+.field{
+margin-bottom:5px;
+}
+
+.actions{
+margin-bottom:5px;
+}
+
+.delete-link{
+font-size:14px;
+color:#415989;
+}
+
+.delete-link:hover {
         
         background-color:#89ACD7;
     }
-
-
 

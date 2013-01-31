@@ -24,7 +24,9 @@
     
     <td>
     <div id="hint">
-    <br/><%=  session[:h] %><br/>
+    <br/>
+    Hint:
+    <%=  session[:h] %><br/>
     </div>
       <%= form_for @player, :url => {:action => "update"} do |f| %>
       
@@ -35,22 +37,29 @@
       
     </td>
   </tr>
+
   
     
-  <% else %>
-  <b><%= " Lost the game. Word is #{@player.word}" %></b>
-  <% end %>
+   <% else %>
+   <b><%= " Lost the game. Word is #{@player.word}" %></b>
+
+   <%= image_tag("imagessmily1.jpeg") %><br>
+   <% end %>
+
   
   </table>
+
+
   <%= flash[:notice] %><br />
   
-  <%= link_to 'Back', players_path, {:style=>'color:#415989;',:class => "a"} %>
+  <em><%= link_to 'Back', players_path,:class => "delete-link" %></em>&nbsp
  
-  <%= link_to 'New Game', new_player_path(:id => session[:gid] ),{:style=>'color:#415989;',:class => "a"} %>
-  <%= link_to 'Home', root_path,{:style=>'color:#415989;',:class => "a"} %>
+   <em><%= link_to 'New Game', new_player_path(:id => session[:gid] ),:class => "delete-link" %></em>&nbsp
+  <em><%= link_to 'Home', root_path,:class => "delete-link" %></em>
   
-  <%#s= link_to 'New', :controller => "players", :action => "create" %>
+  <%#s= link_to 'New', :controller => "players", :action => "create",:class => "delete-link" %>
   </div>
+  
   
 
 </div>

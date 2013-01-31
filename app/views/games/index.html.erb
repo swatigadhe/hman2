@@ -1,4 +1,4 @@
-<h1>Listing games</h1>
+<h2>Existing games</h2>
 
 <table>
   <tr>
@@ -10,14 +10,16 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><h2><%= game.gamename %></h2></td>
-    <td><%= link_to 'Show', game, {:style=>'color:#415989;',:class => "a"} %></td>
-    <td><%= link_to 'Edit', edit_game_path(game), {:style=>'color:#415989;',:class => "a"} %></td>
-    <td><%= link_to 'Destroy', game,{:style=>'color:#415989;',:class => "a"}, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><h3><%= game.gamename %><h3></td>
+    <td>&nbsp&nbsp<%= link_to 'Show', game , :class => "delete-link" %>&nbsp</td>
+    <td><%= link_to 'Edit', edit_game_path(game), :class => "delete-link" %>&nbsp</td>
+    <td><%= link_to 'Destroy', game,   method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete-link"%><br></td>
+
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Create Game', new_game_path,{:style=>'color:#415989;',:class => "a"} %>
+<em><%= link_to 'Create Game', new_game_path, :class => "delete-link" %> </em> &nbsp  
+<em><%= link_to 'Play Game', new_player_path,:class => "delete-link" %></em>

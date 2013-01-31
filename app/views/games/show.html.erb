@@ -29,11 +29,11 @@
   <%= params[:error] if params[:error]%>
   </div>
   <div class="actions">
-    <%= f.submit 'Create List', :class=> "buttonTo" %>
+    <%= f.submit 'Create List', :class=> "buttonTo" %><br>
   </div>
 <% end %>
 
-<%= link_to 'Edit', edit_game_path(@game),{:style=>'color:#415989;',:class => "a"} %> |
-<%= link_to 'Back', games_path,{:style=>'color:#415989;',:class => "a"} %>
-<%= link_to 'NewGame', new_game_path,{:style=>'color:#415989;',:class => "a"} %>
-<%= link_to 'Play Game', players_path,{:style=>'color:#415989;',:class => "a"} %>
+<em><%= link_to 'Edit', edit_game_path(@game),:class => "delete-link" %></em>&nbsp
+<em><%= link_to 'Back', games_path,:class => "delete-link" %></em>&nbsp
+<em><%= link_to 'NewGame', new_game_path,:class => "delete-link"%></em>&nbsp
+<em><%= link_to 'Play Game', new_player_path,:class => "delete-link" %></em>
