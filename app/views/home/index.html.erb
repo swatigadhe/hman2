@@ -1,10 +1,11 @@
 <h1> Hangman </h1>
+
 <% @games.each do |g| %>
 
 <tr>
-<br/>
 
-<td><tr><%= link_to g.gamename, new_player_path(:id=>g.id),{:style=>'color:#FFFFFF;', :class => "buttonTo"}%></tr></td><br/>
+
+<td><tr><%#= link_to g.gamename, new_player_path(:id=>g.id),{:style=>'color:#FFFFFF;', :class => "buttonTo"}%></tr></td>
 <% end %>
 </tr>
  
@@ -14,5 +15,6 @@
 <%#= button_to 'Actors', new_player_path, :method => "get", :class => "buttonTo" %>  
 <%#= button_to 'Actresses', new_player_path, :method => "get", :class => "buttonTo" %>
 <%#= button_to 'Poloticians', new_player_path, :method => "get", :class => "buttonTo" %>
-<%= link_to 'Create Game', games_path, {:style=>'color:#FFFFFF;', :class => "buttonTo"}%><br>
-<%#= link_to 'Play Game', new_player_path, {:style=>'color:#FFFFFF;', :class => "buttonTo"} %>
+
+<%= link_to 'Play Game', new_player_path, {:style=>'color:#FFFFFF;', :class => "buttonTo"} %><br>
+<br><%= link_to 'Create Game', games_path, {:style=>'color:#FFFFFF;', :class => "buttonTo"}%><br>
