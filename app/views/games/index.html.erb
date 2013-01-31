@@ -1,5 +1,5 @@
 <h2>Existing games</h2>
-
+<br>
 <table>
   <tr>
     
@@ -11,8 +11,8 @@
 <% @games.each do |game| %>
   <tr>
     <td><h3><%= game.gamename %><h3></td>
-    <td>&nbsp&nbsp<%= link_to 'Show', game , :class => "delete-link" %>&nbsp</td>
-    <td><%= link_to 'Edit', edit_game_path(game), :class => "delete-link" %>&nbsp</td>
+    <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= link_to 'Show', game , :class => "delete-link" %>&nbsp&nbsp</td>
+    <td><%= link_to 'Edit', edit_game_path(game), :class => "delete-link" %>&nbsp&nbsp</td>
     <td><%= link_to 'Destroy', game,   method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete-link"%><br></td>
 
   </tr>

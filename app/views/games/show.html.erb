@@ -2,10 +2,10 @@
 
 <p>
   <b>Gamename:</b>
-  <%= @game.gamename %>
+  <%= @game.gamename %><br>
 </p>
 
-<h2>Words</h2>
+<br><h3>Words</h3>
 <% @game.lists.each do |list| %>
    
   <p>
@@ -14,11 +14,11 @@
   </p>
 <% end %>
 
-<h2>Add a word:</h2>
+<br><h3>Add a word:</h3>
 <%= form_for([@game, @game.lists.build]) do |f| %>
   
   <div class="field">
-    <%= f.label :Word %><br />
+    <br><%= f.label :Word %><br />
     <%= f.text_field :words %>
   <%= params[:error] if params[:error]%>
   
@@ -33,7 +33,7 @@
   </div>
 <% end %>
 
-<em><%= link_to 'Edit', edit_game_path(@game),:class => "delete-link" %></em>&nbsp
+<br><em><%= link_to 'Edit', edit_game_path(@game),:class => "delete-link" %></em>&nbsp
 <em><%= link_to 'Back', games_path,:class => "delete-link" %></em>&nbsp
 <em><%= link_to 'NewGame', new_game_path,:class => "delete-link"%></em>&nbsp
 <em><%= link_to 'Play Game', new_player_path,:class => "delete-link" %></em>
