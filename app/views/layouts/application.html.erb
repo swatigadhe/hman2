@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Hman</title>
-  <%= stylesheet_link_tag "player" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body style="background: #D4D7FE; padding: 0;margin: 0; height: 100%;">
-<div id="header">
+ <head>
+   <title>Hman</title>
+   <%= stylesheet_link_tag "player" %>
+   <%= javascript_include_tag "application" %>
+   <%= csrf_meta_tags %>
+  </head>
+  <body style="background: #D4D7FE; padding: 0;margin: 0; height: 100%;">
+    <div id="header">
 
-<%= image_tag("animhangman.gif")%>
-     <div class="txt1">
+     <%= image_tag("animhangman.gif")%>
+      <div class="txt1">
         
-     </div>
-</div>
+      </div>
+    </div>
 
-<div id="column">
-  <div id="side">
-    <%= image_tag("1.png")%>
-  </div>
-  <div id="wrap">
-    <%= yield %>
-  </div>
-</div>  
-<div id="footer">
-Copyright ®Hindavi2013 The One That Love Games.All Rights Reserved.
-</div>
-</body>
+   <div id="column">
+     <div id="side">
+       <%= image_tag("1.png")%>
+      </div>
+     <div id="wrap">
+       <%= yield %>
+     </div>
+     
+    </div>  
+   <div id="footer">
+     Copyright ®Hindavi2013 The One That Love Games.All Rights Reserved.
+   </div>
+  </body>
 </html>

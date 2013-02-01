@@ -63,6 +63,12 @@ def show
 
  @player = Player.find(params[:id])
  # p session[:cw]
+ @w=@player.word
+ 
+ 
+  @nword = @w.gsub(/ /,'|').chomp
+  @player.update_attributes(:word => @nword)
+ 
  @current_word = @player.current_word()
  if @player.guess_string == @current_word
  @player.chancess_remain -=1

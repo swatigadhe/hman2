@@ -2,68 +2,61 @@
 <%#= flash[:notice] %>
 
 <div id="main">
-<div id="image">
-<%#= image_tag("/images/image#{@player.chancess_remain}.gif") %>
-<%= render 'image' %>
-</div>
-<div id="text">
-<table>
-  <tr>
+  <div id="image">
+    <%#= image_tag("/images/image#{@player.chancess_remain}.gif") %>
+    <%= render 'image' %>
+  </div>
+  <div id="text">
+   <table>
+     <tr>
    
-  <% if !@current_word.nil? && @player.chancess_remain >0 %>
-  <%#=  @current_word %>
-    
-    <td><%= @current_word.split(//).join(" ") if !@current_word.nil?  %> </td><br/>
-  </tr>
-   <tr>
+       <% if !@current_word.nil? && @player.chancess_remain >0 %>
+          <%#=  @current_word %>
+          
+          <td><%= @current_word.split(//).join(" ") if !@current_word.nil?  %> </td><br/>
+         </tr>
+         <tr>
    
-    <td><br/><b><%= "Guesses: #{@player.guesses}" %></b></td>
-  </tr>
+           <td><br/><b><%= "Guesses: #{@player.guesses}" %></b></td>
+         </tr>
   
-<tr>
+      <tr>
     
-    <td>
-    <div id="hint">
-    <br/>
-    Hint:
-    <%=  session[:h] %><br/>
-    </div>
-      <%= form_for @player, :url => {:action => "update"} do |f| %>
+        <td>
+         <div id="hint">
+           <br/>
+           Hint:
+           <%=  session[:h] %><br/>
+          </div>
+          <%= form_for @player, :url => {:action => "update"} do |f| %>
       
-          <br /> New guess:
-          <%= f.text_field :guesses, :value => "", :size => "15" %><br /><br/>
-          <%= f.submit "Submit Guess", :class => "buttonTo" %>
-      <% end if !@current_word.nil?  %>
+            <br /> New guess:
+            <%= f.text_field :guesses, :value => "", :size => "15" %><br /><br/>
+            <%= f.submit "Submit Guess", :class => "buttonTo" %>
+          <% end if !@current_word.nil?  %>
       
-    </td>
-  </tr>
+         </td>
+       </tr>
+        <% else %>
+        <%#= @player.word.gsub(/[|]/," ").chomp%>
+        <b><%#= " Lost the game. Word is #{@player.word}" %><br></b>
+           <b><%= " Lost the game. Word is #{@player.word.gsub(/[|]/," ")}" %><br/></b>
 
+        <br><%= image_tag("imagessmily1.jpeg") %><br>
+      <% end %>
+    </table>
+     <%= flash[:notice] %><br />
   
-    
-   <% else %>
-   <b><%= " Lost the game. Word is #{@player.word}" %><br></b>
-
-   <br><%= image_tag("imagessmily1.jpeg") %><br>
-   <% end %>
-
+     <em><%#= link_to 'Back', players_path,:class => "delete-link" %></em>&nbsp
   
-  </table>
-
-
-  <%= flash[:notice] %><br />
-  
-  <em><%= link_to 'Back', players_path,:class => "delete-link" %></em>&nbsp
- 
-   <em><%#= link_to 'New Game', new_player_path(:id => session[:gid] ),:class => "delete-link" %></em>
-   <%= link_to 'New Game', {:action => :create,:id => session[:gid] }, :method => :post, :class => "delete-link" %>&nbsp
-  <em><%= link_to 'Home', root_path,:class => "delete-link" %></em>
-  
-  <%#s= link_to 'New', :controller => "players", :action => "create",:class => "delete-link" %>
+     <em><%#= link_to 'New Game', new_player_path(:id => session[:gid] ),:class => "delete-link" %></em>
+     <%= link_to 'New Game', {:action => :create,:id => session[:gid] }, :method => :post, :class => "delete-link" %>&nbsp
+    <em><%= link_to 'Home', root_path,:class => "delete-link" %></em>
+   
+    <%#s= link_to 'New', :controller => "players", :action => "create",:class => "delete-link" %>
   </div>
   
-  
-
-</div>
+ </div>
   
   
 
