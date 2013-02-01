@@ -10,20 +10,22 @@ def new
   @id = params[:id]
   #p @@id
   #p @@id.class
-  
+  session[:gid] = params[:id]
   @player = Player.new
  
 end
 
 def create
   @player = Player.new(params[:player])
- 
-  session[:gid] = params[:game_id]
+ p "//////////////////////"
+ p session[:gid]
+  #session[:gid] = params[:game_id]
   # Here we are finding list records related to game id selected.
     #we can use both ways written below
     #@list_ids = List.find(:all , :conditions => ["game_id = ?",  params[:game_id]])
     
      #@list_ids = List.find_all_by_game_id(params[:game_id])
+     #@list_ids = List.find_all_by_game_id(session[:gid])
   # Here we are finding exact randome id of list.  
     #@list_id=@list_ids.shuffle.first
 
@@ -31,7 +33,7 @@ def create
     #@playerword= List.find_by_id(@list_id)  
     
     #@hint = @playerword.hint
-    session[:h]= @hint
+    #session[:h]= @hint
   # Here we are fetching current word.  
     #@player.word = @playerword.words.upcase
   
@@ -44,7 +46,8 @@ def create
     @word = List.find_by_id(@lid)
  # Here we current word and assign to player   
     @player.word = @word.words.upcase
-    
+    @hint = @word.hint
+    session[:h] = @hint
     
  # @player.word = List.random_word
   @player.status = "playing"
@@ -75,6 +78,8 @@ def show
  if @player.word == @current_word
 @player.update_attributes( :status => 'win')
 flash[:notice] = "You win the game"
+else
+  @player.update_attributes(:status => 'Lost')
 end
 end
 
