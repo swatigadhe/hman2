@@ -1,3 +1,7 @@
 <%= form_for(@player) do |f| %>
-<%= image_tag("/images/image#{@player.chancess_remain}.gif") %>
+<% if @player.status == 'win'%>
+<%= image_tag @player.url %>
+<% else %>
+<%=  image_tag("/images/image#{@player.chancess_remain}.gif") %>
+<% end %>
 <% end %>

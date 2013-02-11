@@ -15,7 +15,7 @@
 <% end %>
 
 <br><h3>Add a word:</h3>
-<%= form_for([@game, @game.lists.build]) do |f| %>
+<%= form_for([@game, @game.lists.build],:html => { :multipart => true }) do |f| %>
   
   <div class="field">
     <br><%= f.label :Word %><br />
@@ -28,6 +28,10 @@
     <%= f.text_field :hint %>
   <%= params[:error] if params[:error]%>
   </div>
+  <p>
+  <%= f.label 'Photo' %><br />
+  <%= f.file_field :photo %>
+</p><br />
   <div class="actions">
     <%= f.submit 'Create List', :class=> "buttonTo" %><br>
   </div>

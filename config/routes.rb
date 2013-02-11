@@ -54,7 +54,7 @@ end
   #     resources :comments
   #     resources :sales do
   #       get 'recent', :on => :collection
-  #     end
+  #     endplayers
   #   end
 
   # Sample resource route within a namespace:

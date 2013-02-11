@@ -1,7 +1,7 @@
 class Player < ActiveRecord::Base
-  attr_accessible :guesses, :name, :status, :word, :chancess_remain, :guess_string
- 
+  attr_accessible :guesses, :name, :status, :word, :chancess_remain, :guess_string, :url
   
+ 
   
   def current_word()
     

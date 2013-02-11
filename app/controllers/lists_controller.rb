@@ -7,7 +7,7 @@ def create
       if @list.save
       
         format.html{ redirect_to game_path(@game)}
-      else
+       else
         format.html { redirect_to game_path(@game,:error=> @list.errors[:words].first)}
         format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
       end

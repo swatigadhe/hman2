@@ -25,17 +25,20 @@ def create
     #@list_ids = List.find(:all , :conditions => ["game_id = ?",  params[:game_id]])
     
      #@list_ids = List.find_all_by_game_id(params[:game_id])
-     #@list_ids = List.find_all_by_game_id(session[:gid])
+     ##@list_ids = List.find_all_by_game_id(session[:gid])
   # Here we are finding exact randome id of list.  
-    #@list_id=@list_ids.shuffle.first
+    ##@list_id=@list_ids.shuffle.first
 
   # Here we are fetching single list record from seleted id.    
-    #@playerword= List.find_by_id(@list_id)  
+    ##@playerword= List.find_by_id(@list_id)  
     
-    #@hint = @playerword.hint
-    #session[:h]= @hint
+    ##@hint = @playerword.hint
+    ##session[:h]= @hint
+    ##@img = @playerword.photo.url
+    ##session[:i] = @img
+
   # Here we are fetching current word.  
-    #@player.word = @playerword.words.upcase
+    ##@player.word = @playerword.words.upcase
   
   
  # Here we fetch all records from db   
@@ -48,6 +51,10 @@ def create
     @player.word = @word.words.upcase
     @hint = @word.hint
     session[:h] = @hint
+    @img = @word.photo.url(:medium)
+    p"//////////////////////////"
+    p @img
+    session[:i] = @img
     
  # @player.word = List.random_word
   @player.status = "playing"
@@ -67,7 +74,9 @@ def show
  
  
   @nword = @w.gsub(/ /,'|').chomp
-  @player.update_attributes(:word => @nword)
+ @player.update_attributes(:word => @nword)
+
+ @player.update_attributes(:url => session[:i])
  
  @current_word = @player.current_word()
  if @player.guess_string == @current_word

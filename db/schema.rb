@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130093209) do
+ActiveRecord::Schema.define(:version => 20130205055853) do
 
   create_table "games", :force => true do |t|
     t.string   "gamename"
@@ -22,9 +22,13 @@ ActiveRecord::Schema.define(:version => 20130130093209) do
   create_table "lists", :force => true do |t|
     t.string   "words"
     t.integer  "game_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "hint"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "lists", ["game_id"], :name => "index_lists_on_game_id"
@@ -39,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130130093209) do
     t.integer  "chancess_remain"
     t.string   "Guess_word"
     t.string   "guess_string"
+    t.string   "url"
   end
 
   create_table "usergames", :force => true do |t|

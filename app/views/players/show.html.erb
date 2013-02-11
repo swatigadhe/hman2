@@ -5,7 +5,7 @@
   <div id="image">
     <%#= image_tag("/images/image#{@player.chancess_remain}.gif") %>
     <%= render 'image' %>
-  </div>
+ </div>
   <div id="text">
    <table>
      <tr>
@@ -32,25 +32,26 @@
       
             <br /> New guess:
             <%= f.text_field :guesses, :value => "", :size => "15" %><br /><br/>
-            <%= f.submit "Submit Guess", :class => "buttonTo" %>
+            <%= f.submit "Submit Guess", :class => "buttonTo" %><br>
           <% end if !@current_word.nil?  %>
       
          </td>
        </tr>
+       
+          
         <% else %>
         <%#= @player.word.gsub(/[|]/," ").chomp%>
         <b><%#= " Lost the game. Word is #{@player.word}" %><br></b>
-           <b><%= " Lost the game. Word is #{@player.word.gsub(/[|]/," ")}" %><br/></b>
-
-        <br><%= image_tag("imagessmily1.jpeg") %><br>
+          <b><%= " Lost the game. Word is #{@player.word.gsub(/[|]/," ")}" %><br/></b>
+             <br><%= image_tag @player.url %><br>
+        <br><%#= image_tag("imagessmily1.jpeg") %><br>
       <% end %>
     </table>
-     <%= flash[:notice] %><br />
+    <br><%= flash[:notice] %><br />
   
-     <em><%#= link_to 'Back', players_path,:class => "delete-link" %></em>&nbsp
-  
-     <em><%#= link_to 'New Game', new_player_path(:id => session[:gid] ),:class => "delete-link" %></em>
-     <%= link_to 'New Game', {:action => :create,:id => session[:gid] }, :method => :post, :class => "delete-link" %>&nbsp
+    <em><%#= link_to 'Back', players_path,:class => "delete-link" %></em>&nbsp
+    <em><%#= link_to 'New Game', new_player_path(:id => session[:gid] ),:class => "delete-link" %></em>
+    <%= link_to 'New Game', {:action => :create,:id => session[:gid] }, :method => :post, :class => "delete-link" %>&nbsp
     <em><%= link_to 'Home', root_path,:class => "delete-link" %></em>
    
     <%#s= link_to 'New', :controller => "players", :action => "create",:class => "delete-link" %>
