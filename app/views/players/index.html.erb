@@ -12,7 +12,7 @@
     <td><%= player.id %></td>
     <td><%= player.name %></td>
     <td><%= player.status %></td>
-    
+    <td>&nbsp&nbsp&nbsp<%= link_to 'Destroy', player,   method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete-link"%><br></td>
   </tr>
 <% end %>
 </table>

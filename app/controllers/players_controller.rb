@@ -112,4 +112,14 @@ temp_guess = @player.guesses + params[:player][:guesses].to_s.upcase
 redirect_to @player
 
 end
+
+def destroy
+    @player = Player.find(params[:id])
+    @player.destroy
+
+    respond_to do |format|
+      format.html { redirect_to players_url }
+      format.json { head :no_content }
+    end
+  end
 end
