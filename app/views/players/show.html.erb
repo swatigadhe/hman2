@@ -43,7 +43,7 @@
         <%#= @player.word.gsub(/[|]/," ").chomp%>
         <b><%#= " Lost the game. Word is #{@player.word}" %><br></b>
           <b><%= " Lost the game. Word is #{@player.word.gsub(/[|]/," ")}" %><br/></b>
-             <br><%= image_tag @player.url %><br>
+             <br><%= image_tag @player.url.to_s %><br>
         <br><%#= image_tag("imagessmily1.jpeg") %><br>
       <% end %>
     </table>
