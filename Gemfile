@@ -11,6 +11,7 @@ gem 'pg', '0.14.1', :group => [:production]
 gem 'therubyracer'
 gem 'execjs'
 gem 'rmagick'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.
